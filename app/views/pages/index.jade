@@ -1,0 +1,70 @@
+extends ../layout
+block link
+  link(href="/css/index.css",rel="stylesheet")
+  script(src="/js/index.js")
+block content
+  #ad-carousel.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target='#ad-carousel', data-slide-to='0')
+      li(data-target='#ad-carousel', data-slide-to='1')
+      li(data-target='#ad-carousel', data-slide-to='2')
+      li(data-target='#ad-carousel', data-slide-to='3')
+      li(data-target='#ad-carousel', data-slide-to='4')
+    .carousel-inner
+      .item.active
+        img(src='images/together.JPG', alt='1 slide')
+        .container
+          .carousel-caption
+            h1 Computer Science
+            p
+              img#barcode(src='', alt='')
+      .item
+        img(src='images/02.jpg', alt='2 slide')
+        .container
+          .carousel-caption
+            h1 Social Science
+            p
+              img#barcode(src='', alt='')
+      .item
+        img(src='images/04.jpg', alt='3 slide')
+        .container
+          .carousel-caption
+            h1 Life Science
+            p
+              img#barcode(src='', alt='')
+      .item
+        img(src='images/10.jpg', alt='4 slide')
+        .container
+          .carousel-caption
+            h1 Humanity
+            p
+              img#barcode(src='', alt='')
+      .item
+        img(src='images/12.jpg', alt='5 slide')
+        .container
+          .carousel-caption
+            h1 Engineering
+            p
+              img#barcode(src='', alt='')
+    a.left.carousel-control(href='#ad-carousel', data-slide='prev')
+      span.glyphicon.glyphicon-chevron-left
+    a.right.carousel-control(href='#ad-carousel', data-slide='next')
+      span.glyphicon.glyphicon-chevron-right
+  .container#books
+    .row
+      each sub in subjects
+        .panel.panel-default
+          .panel-heading
+            h3
+              a(href='/subject?sub=#{sub._id}&p=0') #{sub.name}
+          .panel-body
+            if sub.textbooks && sub.textbooks.length > 0
+              each item in sub.textbooks
+                .col-md-2
+                  .thumbnail
+                    a(href="/textbook/#{item._id}")
+                        img(src="/upload_textbook/#{item.photo}", alt="#{item.title}", style="width:250px;height:250px;")
+                    .caption
+                      h4 #{item.title}
+                      p: a.btn.btn-primary(href="/textbook/#{item._id}", role="button") See Detail
+  
