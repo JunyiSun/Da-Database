@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      form#NewTextbookForm.form-horizontal(method="post", action="/regular/textbook",enctype="multipart/form-data")
+        .form-group
+          label.col-sm-2.control-label Choose Subject
+          each sub in subjects
+            label.radio-inline
+              if textbook._id
+                input.subject_group(type="radio", name="textbook[subject]", value=sub._id, checked=sub._id.toString()==textbook.subject.toString())
+              else
+                input.subject_group(type="radio", name="textbook[subject]", value=sub._id)
+              | #{sub.name}
+        .form-group
+          label.col-sm-2.control-label(for="inputSubject") If Not Above, Create New Subject
+          .col-sm-10
+            input#inputSubject.form-control.subject_group(type="text", name="textbook[subjectName]", value=textbook.subjectName)
+        .form-group
+          label.col-sm-2.control-label(for="inputTitle") Title
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="textbook[title]", value=textbook.title)
+        .form-group
+          label.col-sm-2.control-label(for="inputAuthor") Author
+          .col-sm-10
+            input#inputAuthor.form-control(type="text", name="textbook[author]", value=textbook.author)
+        .form-group
+          label.col-sm-2.control-label(for="inputCourse") Course
+          .col-sm-10
+            input#inputCourse.form-control(type="text", name="textbook[course]", value=textbook.course)
+        .form-group
+          label.col-sm-2.control-label(for="inputLanguage") Language
+          .col-sm-10
+            input#inputLanguage.form-control(type="text", name="textbook[language]", value=textbook.language)
+        .form-group
+          label.col-sm-2.control-label(for="inputEdition") Edition
+          .col-sm-10
+            input#inputEdition.form-control(type="text", name="textbook[edition]", value=textbook.edition)
+        .form-group
+          label.col-sm-2.control-label(for="inputPrice") Price
+          .col-sm-10
+            input#inputPrice.form-control(type="text", name="textbook[price]", value=textbook.price)
+        .form-group
+          label.col-sm-2.control-label(for="uploadPhoto") Textbook Photo Upload
+          .col-sm-10
+            input#uploadPhoto(type="file", name="uploadPhoto")
+        .form-group
+          label.col-sm-2.control-label(for="inputSummary") Summary
+          .col-sm-10
+            textarea#inputSummary.form-control(type="text", name="textbook[summary]")= textbook.summary
+        .form-group
+          .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type="submit") Submit
+  script(src='/js/textbook.js')
