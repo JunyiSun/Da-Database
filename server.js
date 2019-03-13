@@ -26,7 +26,6 @@ mongoose.Promise = global.Promise;
 mongoose.connect(dbUrl, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
-  useMongoClient: true,
   useNewUrlParser: true,
   useCreateIndex: true
 });

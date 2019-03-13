@@ -12,9 +12,9 @@ block content
             th View Profile
         tbody
           each item in users
-            tr(class="item-id-#{item._id} clickable-row", data-href="/regular/user/profile/#{item._id}")
+            tr(class="item-id-#{item._id} clickable-row", data-href="/regular/user/profile/"+item._id)
               td #{item.email}
               td #{item.name}        
               td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
-              td: a(href="/regular/user/profile/#{item._id}") View
+              td: a(href="/regular/user/profile/"+item._id) View
   script(src="/js/list.js")    

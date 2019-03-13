@@ -14,6 +14,7 @@ module.exports = function(app,passport){
 	//pre handle user
 	app.use(function(req,res,next){
 		app.locals.user = req.session.user;
+		console.log("in app.use" + req.session.user);
 		next();
 	});
 

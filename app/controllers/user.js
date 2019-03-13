@@ -195,7 +195,7 @@ exports.changepwd = function(req,res){
 		if (isMatch2){
 			if(newpwd == confirmpwd){
 				newpwd = user.generateHash(newpwd);
-				User.update({email:email},{$set:{password:newpwd}},function(err){
+				User.updateOne({email:email},{$set:{password:newpwd}},function(err){
 					if(err){
 						console.log(err);
 					}
@@ -230,9 +230,10 @@ exports.regularList = function(req,res){
 
 exports.regularProfile = function(req,res){
 	var suser = req.session.user;
+	console.log("in exports.regularProfile " + suser);
 	var _id = req.params.id;
 	//increase viewed number
-	User.update({_id:_id},{$inc:{pv:1}},function(err){
+	User.updateOne({_id:_id},{$inc:{pv:1}},function(err){
 		if(err){
 			console.log(err);
 		}
@@ -244,6 +245,7 @@ exports.regularProfile = function(req,res){
 		.populate('reply.from','name image')
 		.populate('reply.to','name')
 		.exec(function(err,chats){
+			console.log("in exports.regularProfile user profile render" + suser);
 			res.render('userprofile_regular',{
 				title:'Profile',
 				sessionuser: suser,
@@ -287,7 +289,7 @@ exports.adminProfile = function(req, res){
 	var _id = req.params.id;
 	var suser = req.session.user;
 	//increase viewed number
-	User.update({_id:_id},{$inc:{pv:1}},function(err){
+	User.updateOne({_id:_id},{$inc:{pv:1}},function(err){
 		if(err){
 			console.log(err);
 		}
@@ -328,7 +330,7 @@ exports.makeAdmin = function(req, res){
 	if (id){
 		User.findById(id,function(err,user){
 			if(user.role <=10){
-				User.update({_id:user._id},{$set:{role:15}},function(err){
+				User.updateOne({_id:user._id},{$set:{role:15}},function(err){
 					if(err){
 						console.log(err);
 					}
@@ -336,7 +338,7 @@ exports.makeAdmin = function(req, res){
 			  });
 			}
 			else{
-				User.update({_id:user._id},{$set:{role:0}},function(err){
+				User.updateOne({_id:user._id},{$set:{role:0}},function(err){
 					if(err){
 						console.log(err);
 					}
@@ -375,6 +377,7 @@ exports.del = function(req, res){
 // midware for user
 exports.signinRequired = function(req,res,next){
 	var _user = req.session.user;
+	console.log("in signinRequired" + _user);
 
 	if(!_user){
 		res.redirect('/signin');

@@ -48,7 +48,7 @@
               span &nbsp;|&nbsp;         
       if sessionuser
         p.navbar-text.navbar-right
-          a(href="/regular/user/profile/#{sessionuser._id}"): span Welcome: #{sessionuser.name}
+          a(href="/regular/user/profile/" + sessionuser._id): span Welcome: #{sessionuser.name}
           span &nbsp;|&nbsp;
           a.navbar-link(href="/logout") Log Out
       else

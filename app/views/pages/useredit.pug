@@ -4,7 +4,7 @@ block content
   .container
     .row
       .col-sm-4
-        img(src="/upload_user/#{user.image}", alt="#{user.email}",style="width:250px;height:250px;")
+        img(src="/upload_user/"+user.image, alt="#{user.email}",style="width:250px;height:250px;")
       .col-sm-8
         form.form-horizontal(method="post", action="/user/saveprofile",enctype="multipart/form-data")
           if user._id
