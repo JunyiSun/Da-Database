@@ -1,9 +1,9 @@
 var Index = require('../app/controllers/index');
 var User = require('../app/controllers/user');
-var Subject = require('../app/controllers/subject');
-var Textbook = require('../app/controllers/textbook');
-var TradeRequest = require('../app/controllers/traderequest');
-var Comment = require('../app/controllers/comment');
+// var Subject = require('../app/controllers/subject');
+// var Textbook = require('../app/controllers/textbook');
+// var TradeRequest = require('../app/controllers/traderequest');
+// var Comment = require('../app/controllers/comment');
 var Chat = require('../app/controllers/chat');
 
 var multipart = require('connect-multiparty');
@@ -20,7 +20,7 @@ module.exports = function(app,passport){
 
   // index page
 	app.get('/',Index.index);
-  app.get('/subject',Index.search);
+  // app.get('/subject',Index.search);
 
 //section of Google signin ==================================================
 
@@ -59,42 +59,42 @@ module.exports = function(app,passport){
 
 
 //section of subject ==========================================================
-    app.get('/admin/subject/new', User.signinRequired, User.adminRequired, Subject.new);
-	app.post('/admin/subject', User.signinRequired, User.adminRequired, Subject.save);
-	app.get('/admin/subject/list', User.signinRequired, User.adminRequired, Subject.list);
-	app.delete('/admin/subject/list', User.signinRequired, User.adminRequired, Subject.del);
-
-
-//section of textbook==========================================================
-    app.get('/regular/textbook/new', User.signinRequired, Textbook.new);
-    app.get('/regular/textbook/update/:id', User.signinRequired, Textbook.update);
-    app.post('/regular/textbook',multipartMiddleware, Textbook.savePhoto, Textbook.submit);
-    app.post('/regular/textbook/edit',multipartMiddleware, Textbook.savePhoto, Textbook.save);
-    app.get('/regular/textbook/list',Textbook.mylist, User.signinRequired);
-
-    app.put('/rating',User.signinRequired, Textbook.updateRating);
-    app.put('/ratingdown',User.signinRequired, Textbook.decreaseRating);
-    app.get('/textbook/:id', User.signinRequired, Textbook.detail);
-
-    app.get('/admin/textbook/update/:id',User.signinRequired,User.adminRequired,Textbook.update);
-    app.get('/admin/textbook/list',User.signinRequired,User.adminRequired,Textbook.list);
-
-    app.delete('/admin/textbook/list', Textbook.del);
-
-
-
-//section of comment===========================================================
-    app.post('/admin/comment',User.signinRequired,Comment.save);
-    app.delete('/textbook/:id',User.signinRequired,Comment.del);
+//     app.get('/admin/subject/new', User.signinRequired, User.adminRequired, Subject.new);
+// 	app.post('/admin/subject', User.signinRequired, User.adminRequired, Subject.save);
+// 	app.get('/admin/subject/list', User.signinRequired, User.adminRequired, Subject.list);
+// 	app.delete('/admin/subject/list', User.signinRequired, User.adminRequired, Subject.del);
+//
+//
+// //section of textbook==========================================================
+//     app.get('/regular/textbook/new', User.signinRequired, Textbook.new);
+//     app.get('/regular/textbook/update/:id', User.signinRequired, Textbook.update);
+//     app.post('/regular/textbook',multipartMiddleware, Textbook.savePhoto, Textbook.submit);
+//     app.post('/regular/textbook/edit',multipartMiddleware, Textbook.savePhoto, Textbook.save);
+//     app.get('/regular/textbook/list',Textbook.mylist, User.signinRequired);
+//
+//     app.put('/rating',User.signinRequired, Textbook.updateRating);
+//     app.put('/ratingdown',User.signinRequired, Textbook.decreaseRating);
+//     app.get('/textbook/:id', User.signinRequired, Textbook.detail);
+//
+//     app.get('/admin/textbook/update/:id',User.signinRequired,User.adminRequired,Textbook.update);
+//     app.get('/admin/textbook/list',User.signinRequired,User.adminRequired,Textbook.list);
+//
+//     app.delete('/admin/textbook/list', Textbook.del);
+//
+//
+//
+// //section of comment===========================================================
+//     app.post('/admin/comment',User.signinRequired,Comment.save);
+//     app.delete('/textbook/:id',User.signinRequired,Comment.del);
 
 //section of chat =============================================================
     app.post('/admin/chat', Chat.save);
 		//app.delete('/regular/user/profile/:id', Chat.del);
 
 //trade requests===============================================================
-    app.get('/traderequest/new/:id', User.signinRequired, TradeRequest.new);
-    app.get('/traderequest/make/', User.signinRequired,TradeRequest.make);
-    app.get('/traderequest/list', User.signinRequired, TradeRequest.list);
-    app.delete('/traderequest/list/complete', User.signinRequired, TradeRequest.complete);
-    app.delete('/traderequest/list/reject', User.signinRequired, TradeRequest.reject);
+    // app.get('/traderequest/new/:id', User.signinRequired, TradeRequest.new);
+    // app.get('/traderequest/make/', User.signinRequired,TradeRequest.make);
+    // app.get('/traderequest/list', User.signinRequired, TradeRequest.list);
+    // app.delete('/traderequest/list/complete', User.signinRequired, TradeRequest.complete);
+    // app.delete('/traderequest/list/reject', User.signinRequired, TradeRequest.reject);
 };

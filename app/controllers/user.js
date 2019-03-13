@@ -1,6 +1,6 @@
 var User = require('../models/user');
-var Textbook = require('../models/textbook');
-var TradeRequest = require('../models/traderequest');
+// var Textbook = require('../models/textbook');
+// var TradeRequest = require('../models/traderequest');
 var ChatWith = require('../models/chat');
 var underscore = require('underscore');
 var fs = require('fs');
@@ -356,14 +356,14 @@ exports.del = function(req, res){
 	if(id){
 
         //Removes the user's textbooks
-        Textbook.remove({userId: id}, function(err, tbs){
-            if (err) console.log(err);
-        });
-
-        //Removes related traderequests
-        TradeRequest.remove({$or:[ {userId: id}, {offerUserId: id}]}, function(err, rqs){
-            if (err) console.log(err);
-        });
+        // Textbook.remove({userId: id}, function(err, tbs){
+        //     if (err) console.log(err);
+        // });
+				//
+        // //Removes related traderequests
+        // TradeRequest.remove({$or:[ {userId: id}, {offerUserId: id}]}, function(err, rqs){
+        //     if (err) console.log(err);
+        // });
 
 		User.remove({_id:id},function(err,user){
 			if(err){

@@ -50,21 +50,21 @@ block content
       span.glyphicon.glyphicon-chevron-left
     a.right.carousel-control(href='#ad-carousel', data-slide='next')
       span.glyphicon.glyphicon-chevron-right
-  .container#books
-    .row
-      each sub in subjects
-        .panel.panel-default
-          .panel-heading
-            h3
-              a(href='/subject?sub=#{sub._id}&p=0') #{sub.name}
-          .panel-body
-            if sub.textbooks && sub.textbooks.length > 0
-              each item in sub.textbooks
-                .col-md-2
-                  .thumbnail
-                    a(href="/textbook/#{item._id}")
-                        img(src="/upload_textbook/#{item.photo}", alt="#{item.title}", style="width:250px;height:250px;")
-                    .caption
-                      h4 #{item.title}
-                      p: a.btn.btn-primary(href="/textbook/#{item._id}", role="button") See Detail
-  
+  //- .container#books
+  //-   .row
+  //-     each sub in subjects
+  //-       .panel.panel-default
+  //-         .panel-heading
+  //-           h3
+  //-             a(href='/subject?sub=#{sub._id}&p=0') #{sub.name}
+  //-         .panel-body
+  //-           if sub.textbooks && sub.textbooks.length > 0
+  //-             each item in sub.textbooks
+  //-               .col-md-2
+  //-                 .thumbnail
+  //-                   a(href="/textbook/#{item._id}")
+  //-                       img(src="/upload_textbook/#{item.photo}", alt="#{item.title}", style="width:250px;height:250px;")
+  //-                   .caption
+  //-                     h4 #{item.title}
+  //-                     p: a.btn.btn-primary(href="/textbook/#{item._id}", role="button") See Detail
+  //- 
