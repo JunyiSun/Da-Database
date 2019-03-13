@@ -7,12 +7,6 @@
         li.active
           a(href="/") Home
           span &nbsp;|&nbsp;
-        li
-          a(href="/regular/textbook/new") Sell Now
-          span &nbsp;|&nbsp;
-        li
-          a(href="#books") Buy Now
-          span &nbsp;|&nbsp;
         if sessionuser
           if sessionuser.role > 10
             li.dropdown
@@ -21,17 +15,7 @@
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href="/admin/subject/new") Add Subjects
-                li
-                  a(href="/admin/subject/list") View Subjects List
-                li
-                  a(href="/admin/textbook/list") View All Textbook List
-                li
-                  a(href="/regular/textbook/list") View My Textbook List
-                li
                   a(href="/admin/user/list") View User List
-                li
-                  a(href="/traderequest/list") View Trade Requests
               span &nbsp;|&nbsp;
           else
             li.dropdown
@@ -40,11 +24,7 @@
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href="/regular/textbook/list") View My Textbook List
-                li
                   a(href="/regular/user/list") View User List
-                li
-                  a(href="/traderequest/list") View Trade Requests 
               span &nbsp;|&nbsp;         
       if sessionuser
         p.navbar-text.navbar-right
@@ -53,9 +33,6 @@
           a.navbar-link(href="/logout") Log Out
       else
         p.navbar-text.navbar-right
-          a(href="auth/google" class="btn btn-danger")
-            span.fa.fa-google Sign in with Google
-          span &nbsp;|&nbsp;
           a.navbar-link(href="#", data-toggle="modal", data-target="#signupModal") Sign Up
           span &nbsp;|&nbsp;
           a.navbar-link(href="#", data-toggle="modal", data-target="#signinModal") Log In
