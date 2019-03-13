@@ -20,8 +20,16 @@ var ddos = new Ddos({burst: 50, limit: 100, maxexpiry: 5});
 app.use(ddos.express);
 app.use(compression());
 
-var dbUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/a5';
-mongoose.connect(dbUrl);
+var dbUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/csc301project';
+
+mongoose.Promise = global.Promise;
+mongoose.connect(dbUrl, {
+  keepAlive: true,
+  reconnectTries: Number.MAX_VALUE,
+  useMongoClient: true,
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
 
 // models loading
 var models_path = __dirname + '/app/models';
@@ -47,7 +55,7 @@ walk(models_path);
 
 
 app.set('views','./app/views/pages');  //views files
-app.set('view engine','jade');//set templete
+app.set('view engine','pug');//set templete
 app.use(express.static(path.join(__dirname,'public'), {maxAge: '1d'}));
 app.locals.moment = require('moment');
 // parse application/x-www-form-urlencoded
