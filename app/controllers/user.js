@@ -1,6 +1,4 @@
 var User = require('../models/user');
-// var Textbook = require('../models/textbook');
-// var TradeRequest = require('../models/traderequest');
 var ChatWith = require('../models/chat');
 var underscore = require('underscore');
 var fs = require('fs');
@@ -355,7 +353,6 @@ exports.del = function(req, res){
 
 	if(id){
 
-        //Removes the user's textbooks
         // Textbook.remove({userId: id}, function(err, tbs){
         //     if (err) console.log(err);
         // });

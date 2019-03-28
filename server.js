@@ -63,7 +63,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(session({
-	secret:'imooc',
+	secret:'maker',
 	resave: false,
 	saveUninitialized: true,
 	store: new mongoStore({

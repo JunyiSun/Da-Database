@@ -10,12 +10,6 @@ var UserSchema = new Schema({
 		index: true,
 	},
 	password:String,
-	google:{
-		id: String,
-		token: String,
-		email: String,
-		name: String
-	},
 	name: String,
 	description: String,
 	image: String,
@@ -24,7 +18,8 @@ var UserSchema = new Schema({
 	geo: Object,
 	messages: [{type: ObjectId, ref: 'Message'}],
 	/*
-	0:nomal user
+	= 1: maker
+	= 2: requester
 	>10: admin
 	=20:super admin
 	 */

@@ -3,7 +3,7 @@
 exports.index = function(req, res) {
 	var suser = req.session.user;
 	res.render('index', {
-		title: 'DaDatabase',
+		title: 'MakersMakeChange',
 		sessionuser: suser
 	})
 
