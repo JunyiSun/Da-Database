@@ -19,10 +19,13 @@ var ddos = new Ddos({burst: 50, limit: 100, maxexpiry: 5});
 app.use(ddos.express);
 app.use(compression());
 
-
+// workng for local db
 // var dbUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/csc301project';
 
-var dbUrl = process.env.MONGOLAB_URI || 'mongodb+srv://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
+// working for cloud db
+// var dbUrl = process.env.MONGOLAB_URI || 'mongodb+srv://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
+
+var dbUrl = 'mongodb://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbUrl, {
