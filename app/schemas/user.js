@@ -16,6 +16,9 @@ var UserSchema = new Schema({
 	devices: String,
 	ip: String,
 	geo: Object,
+	industries: [{type:Number, default:0}],
+  skills: [{type:Number, default:0}],
+	interests:[{type:Number, default:0}],
 	messages: [{type: ObjectId, ref: 'Message'}],
 	/*
 	= 1: maker

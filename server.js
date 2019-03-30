@@ -13,13 +13,16 @@ var mongoStore = require('connect-mongo')(session);
 var Ddos = require('ddos');
 var compression = require('compression');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 var app = express();
 var ddos = new Ddos({burst: 50, limit: 100, maxexpiry: 5});
 app.use(ddos.express);
 app.use(compression());
 
-var dbUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/csc301project';
+
+// var dbUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/csc301project';
+
+var dbUrl = process.env.MONGOLAB_URI || 'mongodb+srv://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbUrl, {
@@ -67,7 +70,9 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true,
 	store: new mongoStore({
-		url: dbUrl,
+    mongooseConnection: mongoose.connection,
+    autoReconnect: true,
+    // url: dbUrl,
 		collection: 'sessions'
 	})
 }));

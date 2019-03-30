@@ -1,0 +1,104 @@
+.dashboard-content {
+  width: 100%;
+  height: 100%;
+}
+
+.user-focus {
+  width: 100%;
+  height: 24%;
+  
+  .user-focus-block{
+    background-color: #D21404;
+    width: 24%;
+    height: 100%;
+    text-transform: uppercase;
+    color: #fafafa;
+    padding: 15px;
+    cursor: pointer;
+
+    .user-focus-count{
+      font-size: 25px;
+      font-weight: 1000;
+    }
+  }
+}
+
+.user-cards{
+  width: 100%;
+  height: 58%;
+
+  div {
+    width: 49.33%;
+    height: 100%;
+  }
+
+  .user-card-img{
+    background-color: #8B0000;
+    i {
+      color: #f0efef;
+      font-size: 15em;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .user-card-info {
+    background-color: #cc0000;
+    padding: 15px;
+    color: white;
+    font-size: 25px;
+    background-image: url(../../icons/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    justify-content: space-between;
+
+    div {
+      width: 100%;
+      height: min-content;
+    }
+
+    .go-profile-container{
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .go-profile-button{
+      font-size: 20px;
+      width: max-content;
+      color: black;
+      background-color: white;
+      border-radius: 10px;
+      padding: 3px 12px;
+      cursor: pointer;
+    }
+  }
+}
+
+.user-skills{
+  width: 100%;
+  height: 14%;  
+  background: white;
+
+  .user-skills-block {
+    width: 25%;
+    height: 100%;
+    padding: 15px;
+    
+    .user-skills-title{
+      width: min-content;
+      text-transform: capitalize;
+      font-weight: 600;
+      border-bottom: 3px solid black;
+    }
+
+    .user-skills-count {
+      font-size: 1.5em;
+      font-weight: 1000;
+      color: red;
+    }
+  }
+}

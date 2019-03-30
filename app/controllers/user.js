@@ -244,6 +244,12 @@ exports.regularProfile = function(req,res){
 		.populate('reply.to','name')
 		.exec(function(err,chats){
 			console.log("in exports.regularProfile user profile render" + suser);
+		  // res.status(200).json(200,{
+			// 	title:'Profile',
+			// 	sessionuser: suser,
+			// 	messages:chats,
+			// 	user:user
+			// })
 			res.render('userprofile_regular',{
 				title:'Profile',
 				sessionuser: suser,

@@ -1,0 +1,148 @@
+.edit-content-wrapper{
+  width: 75%;
+}
+
+.edit-head{
+  width: 100%;
+  .edit-tabs{
+    font-size: 28px;
+    color: black;
+    border-bottom: 5px red solid;
+  }
+}
+
+.setting-content{
+  width: 100%;
+  height: 70%;
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 12px;
+  margin: 40px 0;
+  padding: 20px;
+
+  .edit-field{
+    width: 100px;
+    margin-right: 20px;
+  }
+
+  .edit-textArea{
+    width: 400px;
+    height: 100px;
+    padding: 5px;
+  }
+
+  .edit-section{
+    width: 100%;
+    margin-bottom: 20px;
+    
+    .edit-section-title{
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .edit-section-content{
+      padding: 20px 20px 0 20px;
+      width: 100%;
+
+      .edit-input-row{
+        min-height: 40px;
+        width: 100%;
+        margin-bottom: 15px;
+
+        .edit-input{
+          width: 40%;
+          padding: 0;
+          left: 0;
+          outline-offset: 0;
+          padding-left: 5px;
+        }
+
+        .change-password-button{
+          height: 40px;
+          width: 200px;
+          border-radius: 20px;
+          color: white;
+          border: 2px solid white;
+          background-color: rgb(211, 32, 32);
+          cursor: pointer;
+        }
+
+        .change-password-button:hover{
+          color: rgb(211, 32, 32);
+          background-color: white;
+          border: 2px solid rgb(211, 32, 32);
+        }
+      }
+
+      .edit-input-row:last-child{
+        margin-bottom: 0;
+      }
+
+      .edit-img{
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+        margin-right: 20px;
+      }
+
+      .edit-img-content-wrap{
+        width: 240px;
+      
+        .button-wrapper{
+          width: 100%;
+          .upload-button,
+          .delete-button:hover{
+            height: 40px;
+            width: 110px;
+            border: 2px solid rgb(211, 32, 32);
+            color: rgb(211, 32, 32);
+            background-color: white;
+            border-radius: 20px;
+            cursor: pointer;
+          }
+
+          .delete-button,
+          .upload-button:hover{
+            height: 40px;
+            width: 110px;
+            border: 2px solid white;
+            color: white;
+            background-color: rgb(211, 32, 32);
+            border-radius: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .edit-section:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.save-button-wrapper{
+  width: 100%;
+  justify-content: flex-end;
+
+  i {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  .save-button{
+    height: 40px;
+    width: 200px;
+    border-radius: 20px;
+    color: white;
+    border: 2px solid white;
+    background-color: rgb(211, 32, 32);
+    cursor: pointer;
+  }
+
+  .save-button:hover{
+    color: rgb(211, 32, 32);
+    background-color: white;
+    border: 2px solid rgb(211, 32, 32);
+  }
+}
