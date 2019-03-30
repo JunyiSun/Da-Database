@@ -86,13 +86,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "webpack --mode production",
-    "start": "node server.js",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "server": "nodemon server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "shoot": "npm run build && npm run start",
-    "heroku-prebuild": "npm install --dev && npm run build"
+    "start": "node server.js"
   },
   "keywords": [
     "NodeJs",

@@ -23,9 +23,8 @@ app.use(compression());
 // var dbUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/csc301project';
 
 // working for cloud db
-// var dbUrl = process.env.MONGOLAB_URI || 'mongodb+srv://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
+var dbUrl = process.env.MONGOLAB_URI || 'mongodb+srv://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
 
-var dbUrl = 'mongodb://new_katherine:new_katherine@cluster0-vgeap.mongodb.net/test?retryWrites=true';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbUrl, {
